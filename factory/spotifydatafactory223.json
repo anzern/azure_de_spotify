@@ -1,0 +1,15 @@
+{
+	"name": "spotifydatafactory223",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "6f5a1f68-7cbd-42c6-b8d6-5b530b3ea402",
+		"tenantId": "fcc56d76-63af-41e0-a82b-d6f6125b4fe5"
+	}
+}
