@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data_input_output",
+				"name": "Copy data_blob to blob",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
