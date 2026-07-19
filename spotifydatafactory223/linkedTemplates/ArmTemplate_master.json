@@ -31,6 +31,10 @@
 			"type": "string",
 			"defaultValue": "https://spotifydatalake223.dfs.core.windows.net/"
 		},
+		"storage_based_trigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/2d963abe-cc86-44ea-9f99-240014bd4607/resourceGroups/spotifyrg/providers/Microsoft.Storage/storageAccounts/spotifydatalake223"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -75,6 +79,9 @@
 					},
 					"spotifydatalake_properties_typeProperties_url": {
 						"value": "[parameters('spotifydatalake_properties_typeProperties_url')]"
+					},
+					"storage_based_trigger_properties_typeProperties_scope": {
+						"value": "[parameters('storage_based_trigger_properties_typeProperties_scope')]"
 					}
 				}
 			},

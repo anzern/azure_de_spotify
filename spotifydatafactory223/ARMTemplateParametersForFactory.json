@@ -22,6 +22,9 @@
 		},
 		"spotifydatalake_properties_typeProperties_url": {
 			"value": "https://spotifydatalake223.dfs.core.windows.net/"
+		},
+		"storage_based_trigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/2d963abe-cc86-44ea-9f99-240014bd4607/resourceGroups/spotifyrg/providers/Microsoft.Storage/storageAccounts/spotifydatalake223"
 		}
 	}
 }
