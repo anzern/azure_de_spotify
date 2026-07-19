@@ -1,9 +1,9 @@
 {
-	"name": "pipeline1",
+	"name": "event_trigger",
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "event_trigger",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
