@@ -37,11 +37,11 @@
 		},
 		"tumb_window_properties_pipeline_parameters_startdate": {
 			"type": "string",
-			"defaultValue": "@trigger.output.windowstarttime"
+			"defaultValue": "@trigger().outputs.windowStartTime"
 		},
 		"tumb_window_properties_pipeline_parameters_enddate": {
 			"type": "string",
-			"defaultValue": "@trigger.output.windowendtime"
+			"defaultValue": "@trigger().outputs.windowEndTime"
 		}
 	},
 	"variables": {

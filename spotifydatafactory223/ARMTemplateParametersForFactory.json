@@ -27,10 +27,10 @@
 			"value": "/subscriptions/2d963abe-cc86-44ea-9f99-240014bd4607/resourceGroups/spotifyrg/providers/Microsoft.Storage/storageAccounts/spotifydatalake223"
 		},
 		"tumb_window_properties_pipeline_parameters_startdate": {
-			"value": "@trigger.output.windowstarttime"
+			"value": "@trigger().outputs.windowStartTime"
 		},
 		"tumb_window_properties_pipeline_parameters_enddate": {
-			"value": "@trigger.output.windowendtime"
+			"value": "@trigger().outputs.windowEndTime"
 		}
 	}
 }
