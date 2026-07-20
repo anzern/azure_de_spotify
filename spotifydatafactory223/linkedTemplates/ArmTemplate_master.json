@@ -87,6 +87,24 @@
 					},
 					"spotifydatalake_properties_typeProperties_url": {
 						"value": "[parameters('spotifydatalake_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "spotifydatafactory223_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
 					},
 					"storage_based_trigger_properties_typeProperties_scope": {
 						"value": "[parameters('storage_based_trigger_properties_typeProperties_scope')]"
@@ -99,7 +117,9 @@
 					}
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'spotifydatafactory223_ArmTemplate_0')]"
+			]
 		}
 	]
 }
