@@ -1,5 +1,5 @@
 {
-	"name": "filter_sort_dataflow",
+	"name": "filter_sort_data_pipeline",
 	"properties": {
 		"activities": [
 			{
