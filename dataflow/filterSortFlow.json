@@ -1,0 +1,71 @@
+{
+	"name": "filterSortFlow",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTable3",
+						"type": "DatasetReference"
+					},
+					"name": "customerSql"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText7",
+						"type": "DatasetReference"
+					},
+					"name": "blobSync"
+				}
+			],
+			"transformations": [
+				{
+					"name": "filterCountry"
+				},
+				{
+					"name": "sort1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          id as integer,",
+				"          customer_id as string,",
+				"          first_name as string,",
+				"          last_name as string,",
+				"          company as string,",
+				"          city as string,",
+				"          country as string,",
+				"          phone_primary as string,",
+				"          phone_secondary as string,",
+				"          email as string,",
+				"          subscription_date as date,",
+				"          website as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> customerSql",
+				"customerSql filter(country == 'Liechtenstein') ~> filterCountry",
+				"filterCountry sort(asc(first_name, true)) ~> sort1",
+				"sort1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          emp_id as string,",
+				"          name as string,",
+				"          salary as string,",
+				"          address as string,",
+				"          loc as string,",
+				"          email as string",
+				"     ),",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> blobSync"
+			]
+		}
+	}
+}
