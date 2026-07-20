@@ -2,7 +2,7 @@
 	"name": "tumb_window",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Stopped",
+		"runtimeState": "Started",
 		"pipeline": {
 			"pipelineReference": {
 				"referenceName": "tumbling_window",
