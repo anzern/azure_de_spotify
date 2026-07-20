@@ -1,0 +1,12 @@
+{
+	"name": "emp_tumb",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDbspotify",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	}
+}
