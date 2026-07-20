@@ -2,15 +2,15 @@
 	"name": "tumb_window",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipeline": {
 			"pipelineReference": {
 				"referenceName": "tumbling_window",
 				"type": "PipelineReference"
 			},
 			"parameters": {
-				"startdate": "@trigger.output.windowstarttime",
-				"enddate": "@trigger.output.windowendtime"
+				"startdate": "@trigger().outputs.windowStartTime",
+				"enddate": "@trigger().outputs.windowEndTime"
 			}
 		},
 		"type": "TumblingWindowTrigger",
