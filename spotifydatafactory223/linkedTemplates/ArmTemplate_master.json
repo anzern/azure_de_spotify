@@ -35,6 +35,14 @@
 			"type": "string",
 			"defaultValue": "/subscriptions/2d963abe-cc86-44ea-9f99-240014bd4607/resourceGroups/spotifyrg/providers/Microsoft.Storage/storageAccounts/spotifydatalake223"
 		},
+		"tumb_window_properties_pipeline_parameters_startdate": {
+			"type": "string",
+			"defaultValue": "@trigger.output.windowstarttime"
+		},
+		"tumb_window_properties_pipeline_parameters_enddate": {
+			"type": "string",
+			"defaultValue": "@trigger.output.windowendtime"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -82,6 +90,12 @@
 					},
 					"storage_based_trigger_properties_typeProperties_scope": {
 						"value": "[parameters('storage_based_trigger_properties_typeProperties_scope')]"
+					},
+					"tumb_window_properties_pipeline_parameters_startdate": {
+						"value": "[parameters('tumb_window_properties_pipeline_parameters_startdate')]"
+					},
+					"tumb_window_properties_pipeline_parameters_enddate": {
+						"value": "[parameters('tumb_window_properties_pipeline_parameters_enddate')]"
 					}
 				}
 			},
