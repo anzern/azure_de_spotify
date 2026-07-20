@@ -1,0 +1,34 @@
+{
+	"name": "emp_agg",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText8",
+						"type": "DatasetReference"
+					},
+					"name": "employeedata"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          employee_id as string,",
+				"          employee_code as string,",
+				"          first_name as string,",
+				"          last_name as string,",
+				"          email as string,",
+				"          department_id as string,",
+				"          salary as string,",
+				"          hire_date as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> employeedata"
+			]
+		}
+	}
+}
