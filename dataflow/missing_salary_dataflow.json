@@ -9,11 +9,29 @@
 						"referenceName": "DelimitedText11",
 						"type": "DatasetReference"
 					},
-					"name": "source1"
+					"name": "empMissingSalary"
 				}
 			],
-			"sinks": [],
-			"transformations": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText12",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "missingSalary"
+				},
+				{
+					"name": "fullName"
+				},
+				{
+					"name": "columnSelect"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          employee_id as string,",
@@ -27,7 +45,29 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> source1"
+				"     ignoreNoFilesFound: false) ~> empMissingSalary",
+				"empMissingSalary derive(salary = iif(isNull(salary), '0', salary)) ~> missingSalary",
+				"missingSalary derive(full_name = upper(first_name) + ' ' + upper(last_name)) ~> fullName",
+				"fullName select(mapColumn(",
+				"          employee_id,",
+				"          employee_code,",
+				"          first_name,",
+				"          last_name,",
+				"          full_name,",
+				"          email,",
+				"          department_id,",
+				"          salary,",
+				"          hire_date",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> columnSelect",
+				"columnSelect sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
 			]
 		}
 	}
