@@ -17,6 +17,15 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
+						"sqlReaderStoredProcedureName": "[dbo].[cust_sales]",
+						"storedProcedureParameters": {
+							"enddate": {
+								"type": "String"
+							},
+							"startdate": {
+								"type": "String"
+							}
+						},
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -30,6 +39,14 @@
 				]
 			}
 		],
+		"parameters": {
+			"startdate": {
+				"type": "string"
+			},
+			"enddate": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
